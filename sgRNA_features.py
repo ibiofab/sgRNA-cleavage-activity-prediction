@@ -39,7 +39,7 @@ def Order1(sequence):
 #    position_dependent=sorted(position_dependent.items(),key=lambda item:item[0])
 #    position_independent=sorted(position_independent.items(),key=lambda item:item[0])
     position_dependentDic=Vector_feature_to_Value_feature(position_dependentDic,baseLst)
-    Order1_positionDic=dict(position_dependentDic.items()+position_independentDic.items())
+    Order1_positionDic=dict(list(position_dependentDic.items())+list(position_independentDic.items()))
     return Order1_positionDic
 ############################
 #this fuction is used to extract the Order2 feature
@@ -70,7 +70,7 @@ def Order2(sequence):
 #    position_independent=sorted(position_independent.items(),key=lambda item:item[0])
 #    print(Basepair)
     position_dependentDic=Vector_feature_to_Value_feature(position_dependentDic,BasepairLst)
-    Order2_positonDic=dict(position_dependentDic.items()+position_independentDic.items())
+    Order2_positonDic=dict(list(position_dependentDic.items())+list(position_independentDic.items()))
     return Order2_positonDic
 
 ############################
@@ -131,7 +131,7 @@ def feature(sequence,NGGN):
     Order2Position=Order2(sequence)
     Temprature=Temper(sequence)
     NGGN_sequence=NGGNfeature(NGGN)
-    seq_feature=dict(Order1Position.items()+Order2Position.items()+Temprature.items()+NGGN_sequence.items())
+    seq_feature=dict(list(Order1Position.items())+list(Order2Position.items())+list(Temprature.items())+list(NGGN_sequence.items()))
     seq_feature['GC']=float(GC(sequence))/100
     seq_feature_name=sorted(Order1Position.keys())+sorted(Order2Position.keys())+sorted(Temprature.keys())+sorted(NGGN_sequence.keys())
     seq_feature_name.append('GC')

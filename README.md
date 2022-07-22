@@ -1,3 +1,7 @@
+## Fork
+This is a fork of [zhangchonglab/sgRNA-cleavage-activity-prediction](https://github.com/zhangchonglab/sgRNA-cleavage-activity-prediction) updated to work with Python 3.8+ and Scikitlearn 1.1
+
+
 # sgRNA-cleavage-activity-prediction
 
 ## What is this?
@@ -8,12 +12,7 @@ The utility of this software is fairly simple. Given a fasta file containing the
 
 ## How to use it?
 ### Step 1：Installation
-1. Install Python version 2.7
-2. Install biopython version 1.66 or above
-3. Install matplotlib version 2.0.2 or above
-4. Install numpy version 1.13.1 or above
-5. Install scikit-learn version **0.19.0 (This is important)**
-6. Install pandas version 0.18.1 or above
+Install dependencies with `pip install -r requirements.txt`
 
 ### Step 2：Prepare the necessary files.
 All these files (or subdirectories) should be organized under a common working directory together with the all .py scripts.

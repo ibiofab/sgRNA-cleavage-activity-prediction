@@ -4,14 +4,14 @@ import os
 import sys
 import matplotlib.pyplot as plt
 import numpy as np 
-import ConfigParser
+import configparser
 
 # The function processing the configure file
 def configprocess(text):
-    config=ConfigParser.ConfigParser()
+    config=configparser.ConfigParser()
     config.read(text)
     if len(config.sections())>1:
-        print('Make a mistake in the configure file') and os._exit(0) 
+        print(('Make a mistake in the configure file') and os._exit(0)) 
     section=''.join(config.sections())
     varlist={option:config.get(section,option) for option in config.options(section)}
     return varlist
@@ -24,8 +24,8 @@ def metricJudge(varlist):
     prefix       =True
     for item in varlist:
         if not eval(item) :
-            print('The varaint %s in configure file is wrong, please input the correct one according to the user manual!!!!'%(item))
-            print(varlist[item])
+            print(('The varaint %s in configure file is wrong, please input the correct one according to the user manual!!!!'%(item)))
+            print((varlist[item]))
             os._exit(1)
 
 # extract the feature
@@ -46,7 +46,7 @@ def main(configureFile):
     id_column='sgRNAID'
     model='saved_model/Cas9_sgRNA_activity_GBR.pickle' if varlist['model']=='Cas9' else 'saved_model/eSpCas9_sgRNA_activity_GBR.pickle'
     predict(feature_file, id_column, model, varlist['normalization'], varlist['prefix'])
-    print ('prediction process is finalized, please check your result: %s_result.txt'%(varlist['prefix']))
+    print(('prediction process is finalized, please check your result: %s_result.txt'%(varlist['prefix'])))
 
 if __name__ =='__main__':
     main(sys.argv[1])
