@@ -67,14 +67,7 @@ def GBR_pred_main(args):
     predictors = [x for x in my_data.columns if x!=id_column]
     # use the model to predict and test the performance
 
-    # The converted model loses column names.
-    # This needs to be fixed, but remapping is a stopgap solution.
-    mapping = {}
-    for i,v in enumerate(my_data[predictors].columns.values):
-        mapping[v] = "x{}".format(i+1)
-    data2 = pd.DataFrame(my_data[predictors]).rename(columns=mapping)
-
-    activity=gbm_tuned.predict(data2)
+    activity=gbm_tuned.predict(my_data[predictors])
     if normalization:
         activity=perform_normalization(activity)
     result = pd.concat([my_data[id_column], pd.Series(activity, name='score')], axis=1)
