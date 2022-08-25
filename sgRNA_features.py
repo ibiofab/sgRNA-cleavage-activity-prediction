@@ -101,10 +101,10 @@ def Temper(sequence):
     seq_8=seq[7:15]
     seq_5=seq[15:20]
     TDic={}
-    TDic['T20']=Tm.Tm_staluc(seq)
-    TDic['T7']=Tm.Tm_staluc(seq_7)
-    TDic['T8']=Tm.Tm_staluc(seq_8)
-    TDic['T5']=Tm.Tm_staluc(seq_5)
+    TDic['T20']=Tm.Tm_NN(seq)
+    TDic['T7']=Tm.Tm_NN(seq_7)
+    TDic['T8']=Tm.Tm_NN(seq_8)
+    TDic['T5']=Tm.Tm_NN(seq_5)
     return TDic
 
 ##############################    
